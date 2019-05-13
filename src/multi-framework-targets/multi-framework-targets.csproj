@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net20;net472;</TargetFrameworks>
+    <RootNamespace>multi_framework_targets</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fw\**" />
+    <Compile Remove="fw\**" />
+    <EmbeddedResource Remove="fw\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="fw\$(TargetFramework)\**" />
+    <Compile Include="fw\$(TargetFramework)\**" />
+    <EmbeddedResource Include="fw\$(TargetFramework)\**" />
+  </ItemGroup>
+</Project>
